@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  read_timeout: 10s
+  write_timeout: 10s
+  idle_timeout: 120s
+
+database:
+  host: db
+  port: 5432
+  user: paymentuser
+  password: ${DB_PASSWORD}
+  dbname: paymentdb
+  sslmode: disable
+  max_connections: 100
+  min_connections: 10
+  max_conn_lifetime: 3600
+  max_conn_idle_time: 300
+
+auth:
+  access_token_ttl: 15m
+  refresh_token_ttl: 168h  # 7 days
+
+acquiring_bank:
+  processing_delay: 200ms
+  failure_rate: 0.05
+
+logging:
+  level: info
+  format: json
+
+metrics:
+  enabled: true
+  port: 9090
